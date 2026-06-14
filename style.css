@@ -257,6 +257,39 @@ ul {
     margin-bottom: 32px;
 }
 
+
+.mv-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+}
+
+
+.mv-right {
+    position: relative;
+    width: 55%;
+}
+
+/* PC専用の拡大設定 */
+@media screen and (min-width: 961px) {
+    .mv-right {
+        width: 60% !important;
+        display: flex;
+        justify-content: flex-end;
+    }
+    
+    .mv-image {
+        width: 100% !important;
+        max-width: 800px !important;
+    }
+
+    .mv-image img {
+        width: 100% !important;
+        height: auto;
+        display: block;
+    }
+}
+
 /* 4つのチェックポイント（MV内） */
 .check-list {
     display: grid;
@@ -1063,15 +1096,7 @@ ul {
     order: 2;
 }
 
-.locker-item:nth-child(2) {
-    border: 2px solid #d4af37; /* ゴールドの枠線 */
-    background: #fffdf0;      /* 薄いゴールドの背景 */
-}
 
-.locker-item:nth-child(2) strong {
-    color: #b58d53 !important; /* 文字色をゴールド系に */
-    font-weight: bold;
-}
 
 @media screen and (min-width: 601px) {
     .locker-label br {
