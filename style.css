@@ -182,21 +182,13 @@ ul {
 /* ==========================================
    3. メインビジュアル（MV）エリア
    ========================================== */
-.main-content {
-    padding-top: 90px;
-}
+.main-content { padding-top: 90px; }
 
 .main-visual {
-    /* 画像を背景として指定 */
-    background-image: 
-        linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), 
-        url('img/CHULA GYM2.jpg');
-    
+    background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url('img/CHULA GYM2.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    
-    /* レイアウト設定 */
     width: 100%;
     min-height: calc(100vh - 90px);
     display: flex;
@@ -204,7 +196,6 @@ ul {
     padding: 60px 0;
 }
 
-/* コンテンツ全体を中央にギュッと寄せる */
 .mv-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -216,12 +207,10 @@ ul {
     gap: 80px;
 }
 
-/* MV左側コンテンツ */
-.mv-left {
-    width: 100%;
-    max-width: 520px;
-}
+.mv-left { width: 100%; max-width: 520px; }
+.mv-right { width: 100%; max-width: 520px; }
 
+/* タイトル周り */
 .sub-title {
     display: inline-block;
     font-size: 13px;
@@ -230,7 +219,6 @@ ul {
     background-color: #f5ece0;
     padding: 4px 12px;
     border-radius: 4px;
-    letter-spacing: 0.05em;
     margin-bottom: 24px;
 }
 
@@ -241,210 +229,86 @@ ul {
     color: #333333;
     margin-bottom: 28px;
     font-weight: 700;
-    letter-spacing: -0.02em;
-    white-space: nowrap;
+    word-break: keep-all;
+    line-height: 1.3;
 }
 
-.main-title span {
-    color: #b58d53;
-    display: inline;
+.mv-lead { font-size: 18px; line-height: 1.7; color: #555555; margin-bottom: 32px; font-weight: bold;}
+
+/* チェックリスト */
+.check-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px 24px;
+    margin-bottom: 40px;
 }
+.check-list li { font-size: 17px; font-weight: bold; color: #444444; display: flex; align-items: center; }
+.check-icon { color: #b58d53; margin-right: 8px; }
 
-.mv-lead {
-    font-size: 15px;
-    line-height: 1.8;
-    color: #555555;
-    margin-bottom: 32px;
+/* ボタン */
+.mv-buttons { display: flex; gap: 16px; }
+.mv-btn-line, .mv-btn-mail {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 250px; height: 54px; border-radius: 50px; font-size: 14px; font-weight: bold;
+    color: #ffffff; transition: opacity 0.3s;
 }
+.mv-btn-line { background-color: #06c755; }
+.mv-btn-mail { background-color: #ffffff; color: #b58d53; border: 1px solid #b58d53; }
 
-
-.mv-image img {
-    width: 100%;
-    height: auto;
-    border-radius: 12px;
-}
-
-
-.mv-right {
-    position: relative;
-    width: 55%;
-}
-
-/* PC専用の拡大設定 */
+/* PC時：画像非表示 ＆ レイアウト確定 */
 @media screen and (min-width: 961px) {
-    .mv-right {
-        width: 60% !important;
-        display: flex;
-        justify-content: flex-end;
+    .mv-image { display: none !important; }
+}
+
+/* --- スマホ表示用（960px以下） --- */
+@media screen and (max-width: 960px) {
+
+    /* 1. リード文を2行にするための調整 */
+    .mv-lead {
+        padding: 0 10px;
+        line-height: 1.6;
+        word-break: break-all;
+        font-size: 11px;
     }
+
+    /* 2. リストを中央寄せにする */
+    .check-list {
+        display: block;
+        width: fit-content;
+        margin: 0 auto 30px auto;
+        text-align: left;
+    }
+
     
+    .check-list li {
+        margin-bottom: 8px;
+    }
+
     .mv-image {
-        width: 100% !important;
-        max-width: 800px !important;
+        width: 90%; 
+        max-width: 400px;
+        margin: 20px auto;
     }
 
     .mv-image img {
-        width: 100% !important;
+        width: 100%;
         height: auto;
-        display: block;
+        display: block; 
+        border-radius: 12px; 
+    }
+
+    .mv-buttons {
+        margin-top: 120px;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    @media screen and (max-width: 960px) {
+    .main-visual {
+        /* coverだと拡大されすぎるので、containを使って全体を表示させる */
+        background-size: contain; 
     }
 }
-
-/* 4つのチェックポイント（MV内） */
-.check-list {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 16px 24px;
-    margin-bottom: 40px;
-    max-width: 500px;
-}
-
-.check-list li {
-    font-size: 15px;
-    font-weight: bold;
-    color: #444444;
-    display: flex;
-    align-items: center;
-}
-
-.check-icon {
-    color: #b58d53;
-    margin-right: 8px;
-    font-weight: bold;
-}
-
-/* MV内ボタン */
-.mv-buttons {
-    display: flex;
-    gap: 16px;
-}
-
-.mv-btn-line, .mv-btn-mail {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    width: 250px;
-    height: 54px;
-    border-radius: 50px;
-    font-size: 14px;
-    font-weight: bold;
-    color: #ffffff;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-    transition: opacity 0.3s;
-}
-
-.mv-btn-line { background-color: #06c755; }
-.mv-btn-mail {
-    background-color: #ffffff;
-    color: #b58d53;
-    border: 1px solid #b58d53;
-}
-
-.mv-btn-line:hover, .mv-btn-mail:hover {
-    opacity: 0.85;
-}
-
-/* MV右側：上下2枚のモックアップコンテナ */
-.mv-right {
-    width: 100%;
-    max-width: 440px;
-    display: flex;
-    justify-content: center;
-}
-
-.mockup-container {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    width: 100%;
-}
-
-/* 白枠のカード型モックアップベース */
-.mockup-card {
-    background: #ffffff;
-    border: 5px solid #111111;
-    border-radius: 16px;
-    padding: 16px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
-}
-
-.card-inner {
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
-}
-
-.card-left {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-right: 1px solid #eee;
-    padding-right: 10px;
-}
-.card-logo {
-    font-family: 'Noto Serif JP', serif;
-    font-size: 15px;
-    font-weight: bold;
-    color: #b58d53;
-}
-.card-sub-logo {
-    font-size: 9px;
-    color: #999;
-}
-
-.card-center {
-    flex: 1;
-    padding: 0 5px;
-}
-.card-center .card-catch {
-    font-size: 12px;
-    font-weight: bold;
-    line-height: 1.4;
-    margin-bottom: 6px;
-}
-.gold-text { color: #b58d53; }
-.card-desc {
-    font-size: 9px;
-    color: #777;
-    line-height: 1.4;
-}
-
-.card-right {
-    flex: 1.1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-end;
-    text-align: right;
-}
-.card-right .card-catch {
-    font-size: 12px;
-    font-weight: bold;
-    line-height: 1.4;
-}
-.card-price {
-    margin: 4px 0;
-}
-.price-label {
-    font-size: 10px;
-    font-weight: bold;
-    color: #ff4d4d;
-}
-.price-sub {
-    font-size: 8px;
-    color: #666;
-}
-.card-search-box {
-    font-size: 9px;
-    border: 1px solid #ccc;
-    padding: 2px 6px;
-    border-radius: 3px;
-    color: #666;
-    background: #f9f9f9;
-    width: 100%;
-    text-align: left;
 }
 
 
@@ -1614,6 +1478,7 @@ label:has(+ .reservation-group)::after {
     }
     .main-title span {
         display: inline;
+        
     }
     .check-list {
         grid-template-columns: 1fr;
