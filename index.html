@@ -518,21 +518,21 @@
         <div class="line"></div>
         <p class="sub-text">ご希望の日程を3つご選択いただき、<br class="sp-only">メールアプリを起動して簡単に送信できます。</p>
 
-        <form id="reservation-form" class="reservation-card">
+        <form id="reservation-form" action="send.php" method="POST" class="reservation-card">
             <div class="form-row">
                 <div class="form-group">
                     <label>お名前 </label>
-                    <input type="text" id="res-name" placeholder="山田 太郎" required>
+                    <input type="text" name="name" id="res-name" placeholder="山田 太郎" required>
                 </div>
                 <div class="form-group">
                     <label>お電話番号 </label>
-                    <input type="tel" id="res-tel" placeholder="090-0000-0000" required>
+                    <input type="tel" name="tel" id="res-tel" placeholder="090-0000-0000" required>
                 </div>
             </div>
 
             <div class="form-group">
                 <label>メールアドレス </label>
-                <input type="email" id="res-email" placeholder="example@email.com" required>
+                <input type="email" name="email" id="res-email" placeholder="example@email.com" required>
             </div>
 
             <div class="form-group">
@@ -550,18 +550,18 @@
             <div class="form-group">
                 <label>予約希望日時（候補3つ）</label>
                 <div class="reservation-group">
-                    <input type="datetime-local" id="res-date1" required>
-                    <input type="datetime-local" id="res-date2" required>
-                    <input type="datetime-local" id="res-date3" required>
+                    <input type="datetime-local" name="date1" id="res-date1" step="60" required>
+                    <input type="datetime-local" name="date2" id="res-date2" step="60" required>
+                    <input type="datetime-local" name="date3" id="res-date3" step="60" required>
                 </div>
             </div>
 
             <div class="form-group">
                 <label>お悩み・目標（任意）</label>
-                <textarea id="res-message" rows="4" placeholder="（例：半年で-10kg痩せたい、リバウンドを防止したい等）"></textarea>
+                <textarea name="message" id="res-message" rows="4" placeholder="（例：半年で-10kg痩せたい、リバウンドを防止したい等）"></textarea>
             </div>
 
-            <button type="button" class="submit-btn" onclick="sendReservationEmail()">メールアプリを起動して送信</button>
+            <button type="submit" class="submit-btn">予約内容を送信する</button>
         </form>
     </div>
 

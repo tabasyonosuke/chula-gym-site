@@ -1249,6 +1249,18 @@ input, textarea {
     font-size: 15px;
 }
 
+input[type="datetime-local"] {
+    /* appearanceの設定をすべて削除！これで波線は二度と出ません */
+    
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 15px;
+    min-height: 45px;
+}
+
 /* ラジオボタンの選択肢ボックス */
 .radio-row { display: flex; gap: 15px; }
 .radio-box {
