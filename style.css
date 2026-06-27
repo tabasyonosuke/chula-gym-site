@@ -1251,7 +1251,6 @@ input, textarea {
 
 input[type="datetime-local"] {
     /* appearanceの設定をすべて削除！これで波線は二度と出ません */
-    
     width: 100%;
     padding: 12px;
     border: 1px solid #e0e0e0;
