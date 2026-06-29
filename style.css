@@ -1622,4 +1622,22 @@ label:has(+ .reservation-group)::after {
 /* ハイライトカード用 */
 .highlight-plan { border: 2px solid #b58d53; }
 
+/* フォームのスタイルを統一・OS依存をリセット */
+input[type="date"],
+input[type="datetime-local"],
+input[type="time"],
+input[type="text"],
+textarea {
+    -webkit-appearance: none !important; /* 全環境でOS依存スタイルを無効化 */
+    -moz-appearance: none !important;
+    appearance: none !important;
+    background-color: #ffffff !important; /* 背景を白に固定 */
+    border: 1px solid #ccc !important;    /* 枠線を共通化 */
+    border-radius: 4px !important;
+    display: block;
+    width: 100%;
+    padding: 10px; /* 必要に応じて追加 */
+    box-sizing: border-box;
+}
+
 
