@@ -14,9 +14,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $message = $_POST['message']; 
 
     // メール送信元として適切なアドレスを指定
-    $from_email = "reserve@stg.chulagym-ayase.jp";
+    $from_email = "reserve@chulagym-ayase.jp";
     
-    $to = "reserve@stg.chulagym-ayase.jp";
+    $to = "reserve@chulagym-ayase.jp, hayate032606@icloud.com";
     $subject = mb_encode_mimeheader(
     "【CHULA GYM】体験予約・お問い合わせがありました",
     "UTF-8"
